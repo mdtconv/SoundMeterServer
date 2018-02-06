@@ -19,6 +19,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
+
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 
@@ -31,7 +32,13 @@ io.on('connection', function(socket){
     console.log('msg is', msg);
     io.emit('chat message', msg);
   });
+
+  socket.on('error', (error) => {
+    console.log('error is', error);
+  });
+  
 });
+
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET Chat page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('/');
+  res.send({chat: true});
 });
 
 module.exports = router;
