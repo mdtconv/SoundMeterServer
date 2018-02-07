@@ -19,24 +19,26 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-
-var server = http.createServer(app);
+var server = http.Server(app);
 var io = require('socket.io')(server);
 
 /**
- * Socket IO
+ * Socket IO Config
  */
 io.on('connection', function(socket){
-  console.log('connect!');
-  socket.on('chat message', function(msg){
-    console.log('msg is', msg);
-    io.emit('chat message', msg);
+  console.log('Client Connected!');
+  socket.on('heartbeat', function(msg){
+    console.log('heartbeat is', msg);
+    io.emit('heartbeat', msg);
   });
 
   socket.on('error', (error) => {
     console.log('error is', error);
   });
-  
+
+  socket.on('disconnecting', (reason) => {
+
+  });
 });
 
 
