@@ -3,5 +3,5 @@
 $ npm install
 $ npm start
 
-# and run https://github.com/mdtconv/HeartBeatClient
+# and run https://github.com/mdtconv/SoundMeterServer
 ```
